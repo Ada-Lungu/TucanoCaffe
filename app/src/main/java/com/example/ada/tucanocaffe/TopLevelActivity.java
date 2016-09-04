@@ -20,10 +20,19 @@ public class TopLevelActivity extends Activity {
     // anonymous class that implements the OnItemClickListener() interface
         {
             public void onItemClick(AdapterView<?> listView, View itemView, int position, long id){
-                if (position == 0){
-                    Intent intent = new Intent(TopLevelActivity.this, CoffeeCategoryActivity.class);
-                    startActivity(intent);
+                Intent intent = new Intent(TopLevelActivity.this, ProductCategoryActivity.class);
+                String selectedText = listView.getItemAtPosition(position).toString();
+
+                int category = 0;
+                if (selectedText.equals("Coffees")) {
+                    category = Product.COFFEE_CATEGORY;
                 }
+                if (selectedText.equals("Sweets")) {
+                    category = Product.SWEETS_CATEGORY;
+
+                }
+                intent.putExtra(ProductCategoryActivity.EXTRA_CATEGORY, category);
+                startActivity(intent);
 
             }
         };
@@ -35,17 +44,3 @@ public class TopLevelActivity extends Activity {
     }
 
 }
-
-
-//            class OnProductClickListener implements AdapterView.OnItemClickListener {
-//
-//                public void onItemClick(AdapterView<?> listView, View itemView, int position, long id) {
-//                    if (position == 0) {
-//                        Intent intent = new Intent(TopLevelActivity.this, CoffeeCategoryActivity.class);
-//                        startActivity(intent);
-//                    }
-//
-//                }
-//            }
-//
-//        OnProductClickListener productClickListener = new OnProductClickListener();

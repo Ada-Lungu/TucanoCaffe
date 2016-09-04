@@ -1,26 +1,21 @@
 package com.example.ada.tucanocaffe;
 
 import android.app.Activity;
-import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.content.Intent;
-import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.EditText;
 import android.widget.Spinner;
 
-import java.util.ArrayList;
 
-
-public class CoffeeActivity extends Activity {
+public class ProductActivity extends Activity {
 
     public static final String EXTRA_COFFEE_NO = "coffeeNo";
 
@@ -39,7 +34,7 @@ public class CoffeeActivity extends Activity {
             SQLiteOpenHelper tucanoDatabaseHelper = new tucanoDatabaseHelper(this);
             SQLiteDatabase db = tucanoDatabaseHelper.getReadableDatabase();
 //          the query method returns a cursor object, from which we extract data to display in Activities
-            Cursor cursor = db.query("Coffee",
+            Cursor cursor = db.query("Product",
                     new String[] {"Name", "Description", "ImageResourceId"},
                     "_id = ?",
                     new String[] {Integer.toString(coffeeNo)},
@@ -92,7 +87,7 @@ public class CoffeeActivity extends Activity {
         Spinner tableNumsArray = (Spinner) findViewById(R.id.tableNums); // gives me an array
         String tableNum = tableNumsArray.getSelectedItem().toString();
 
-        Intent sendOrderIntent = new Intent(CoffeeActivity.this, OrderActivity.class);
+        Intent sendOrderIntent = new Intent(ProductActivity.this, OrderActivity.class);
         sendOrderIntent.putExtra("clientMessage", clientMessage);
         sendOrderIntent.putExtra("tableNumber", tableNum);
         sendOrderIntent.putExtra("coffeeId", Integer.toString(coffeeNo));
@@ -122,7 +117,7 @@ public class CoffeeActivity extends Activity {
 //        protected Boolean doInBackground(Integer... coffees) {
 //
 //            int coffeeId = coffees[0];
-//            SQLiteOpenHelper tucanoDatabaseHelper = new tucanoDatabaseHelper(CoffeeActivity.this);
+//            SQLiteOpenHelper tucanoDatabaseHelper = new tucanoDatabaseHelper(ProductActivity.this);
 //
 //            try {
 //                SQLiteDatabase db = tucanoDatabaseHelper.getWritableDatabase();
@@ -139,7 +134,7 @@ public class CoffeeActivity extends Activity {
 //        protected void onPostExecute(Boolean success){
 //
 //            if(!success){
-//                Toast toast = Toast.makeText(CoffeeActivity.this, "Database unavailable", Toast.LENGTH_SHORT);
+//                Toast toast = Toast.makeText(ProductActivity.this, "Database unavailable", Toast.LENGTH_SHORT);
 //
 //                toast.show();
 //

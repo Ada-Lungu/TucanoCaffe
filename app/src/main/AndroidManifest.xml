@@ -19,11 +19,11 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".CoffeeCategoryActivity"
+            android:name=".ProductCategoryActivity"
             android:label="@string/title_activity_coffee_category"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".CoffeeActivity"
+            android:name=".ProductActivity"
             android:label="@string/title_activity_coffee"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity

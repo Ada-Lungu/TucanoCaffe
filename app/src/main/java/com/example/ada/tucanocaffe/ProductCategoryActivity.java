@@ -1,16 +1,12 @@
 package com.example.ada.tucanocaffe;
 
 import android.app.ListActivity;
-import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.CursorAdapter;
 import android.widget.ListView;
 import android.view.View;
@@ -20,10 +16,11 @@ import android.widget.Toast;
 /**
  * Created by ada on 8/14/16.
  */
-public class CoffeeCategoryActivity extends ListActivity{
+public class ProductCategoryActivity extends ListActivity{
 
     private SQLiteDatabase db;
     private Cursor cursor;
+    public static final String EXTRA_CATEGORY = "category";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,13 +28,17 @@ public class CoffeeCategoryActivity extends ListActivity{
 
         ListView coffeeCategoryListView = getListView();
 
+        int category = (Integer)getIntent().getExtras().get(EXTRA_CATEGORY);
+
         try{
 
             SQLiteOpenHelper helperDb = new tucanoDatabaseHelper(this);
             db = helperDb.getReadableDatabase();
-            cursor = db.query("Coffee",
+            cursor = db.query("Product",
                                     new String[] {"_id", "Name"},
-                                    null, null, null, null, null
+                                    "category = ?",
+                                    new String[] {Integer.toString(category)},
+                                    null, null, null
             );
 
             CursorAdapter coffeeListAdapter = new SimpleCursorAdapter(this,
@@ -67,8 +68,8 @@ public class CoffeeCategoryActivity extends ListActivity{
 
     public void onListItemClick(ListView listView, View itemView, int position, long id){
 
-        Intent intent = new Intent(CoffeeCategoryActivity.this, CoffeeActivity.class);
-        intent.putExtra(CoffeeActivity.EXTRA_COFFEE_NO, (int) id);
+        Intent intent = new Intent(ProductCategoryActivity.this, ProductActivity.class);
+        intent.putExtra(ProductActivity.EXTRA_COFFEE_NO, (int) id);
         startActivity(intent);
 
     }

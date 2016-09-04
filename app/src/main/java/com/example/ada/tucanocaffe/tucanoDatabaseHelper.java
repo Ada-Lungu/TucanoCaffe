@@ -27,16 +27,18 @@ class tucanoDatabaseHelper extends SQLiteOpenHelper {
         createDB(db);
     }
 
-    private static void insertCoffee(SQLiteDatabase db, String name, String description, int resourceId) {
+    private static void insertProduct(SQLiteDatabase db, String name, String description, int resourceId, int category) {
         //       object ContentValues holds key-values pairs of data
         ContentValues coffeeValues = new ContentValues();
         coffeeValues.put("Name", name);
         coffeeValues.put("Description", description);
         coffeeValues.put("ImageResourceId", resourceId);
+        coffeeValues.put("Category", category);
         //        we insert these into the Coffee table
-        db.insert("Coffee", null, coffeeValues);
+        db.insert("Product", null, coffeeValues);
 
     }
+
 
     private static void insertOrder(SQLiteDatabase db, int tableNo, String coffeeName, String clientMessage){
         ContentValues orderValues = new ContentValues();
@@ -59,17 +61,20 @@ class tucanoDatabaseHelper extends SQLiteOpenHelper {
 
     public void createDB(SQLiteDatabase db) {
 //      if the user does not have any db, it creates it=> calls onCreate
-            Log.v("INFO:", "in create table coffee");
-            db.execSQL("CREATE TABLE Coffee( "
+        Log.v("INFO:", "in create table product");
+            db.execSQL("CREATE TABLE Product( "
                     + "_id INTEGER PRIMARY KEY AUTOINCREMENT, "
                     + "Name TEXT, "
                     + "Description TEXT, "
-                    + "ImageResourceId INTEGER);");
+                    + "ImageResourceId INTEGER, "
+                    + "Category INTEGER);");
 
-            insertCoffee(db, "Latte", "A couple of expresso shots with steamed milk", R.drawable.latte);
-            insertCoffee(db, "Cappuccino", "Espresso, hot milk and steamed milk foam", R.drawable.cappucino2);
-            insertCoffee(db, "Espresso", "Highest quality beans roasted and brewed fresh", R.drawable.espresso);
-            insertCoffee(db, "Machiatto", "Literally means stained milk. The name comes from the procedure through which the milk is stained by the addition of espresso", R.drawable.machiatto);
+            insertProduct(db, "Latte", "A couple of expresso shots with steamed milk", R.drawable.latte, Product.COFFEE_CATEGORY);
+            insertProduct(db, "Cappuccino", "Espresso, hot milk and steamed milk foam", R.drawable.cappucino2, Product.COFFEE_CATEGORY);
+            insertProduct(db, "Espresso", "Highest quality beans roasted and brewed fresh", R.drawable.espresso, Product.COFFEE_CATEGORY);
+            insertProduct(db, "Machiatto", "Literally means stained milk. The name comes from the procedure through which the milk is stained by the addition of espresso", R.drawable.machiatto, Product.COFFEE_CATEGORY);
+            insertProduct(db, "Brownie", "Delicious and fluffy!", R.drawable.machiatto, Product.SWEETS_CATEGORY);
+
 
 
 //      if the user has the db, but the version is lower than current which is 2
