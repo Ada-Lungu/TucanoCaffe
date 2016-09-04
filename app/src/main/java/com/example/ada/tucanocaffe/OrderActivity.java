@@ -8,33 +8,41 @@ import android.widget.TextView;
 
 public class OrderActivity extends Activity {
 
-    public static final String ORDER_ID = "orderId";
+//    public static final String ORDER_ID = "orderId";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_order);
 
-        int orderId = (Integer)getIntent().getExtras().get(ORDER_ID);
-        Order order = Order.orders[orderId];
+//        int orderId = (Integer)getIntent().getExtras().get(ORDER_ID);
+//        Order order = Order.orders[orderId];
 
 
         Intent getOrderInfo = getIntent();
-//        String tableNum = (String) getOrderInfo.getExtras().get("tableNumber");
-//        String clientMessage = (String) getOrderInfo.getExtras().get("clientMessage");
+
+        String coffeeId = (String) getOrderInfo.getExtras().get("coffeeId");
+        String tableNum = (String) getOrderInfo.getExtras().get("tableNumber");
+        String clientMessage = (String) getOrderInfo.getExtras().get("clientMessage");
 
         TextView tableNumView = (TextView) findViewById(R.id.tableNum);
-        tableNumView.setText(order.getTableNum());
-//        tableNumView.setText(tableNum);
+//        tableNumView.setText(order.getTableNum());
+        tableNumView.setText(tableNum);
 
         TextView clientMessageView = (TextView) findViewById(R.id.clientMessage);
-        clientMessageView.setText(order.getClientMessage());
-//        clientMessageView.setText(clientMessage);
+//        clientMessageView.setText(order.getClientMessage());
+        clientMessageView.setText(clientMessage);
 
+        TextView coffeeIdView = (TextView) findViewById(R.id.coffeeId);
+        coffeeIdView.setText(coffeeId);
 
 //        Intent sendOrderInfoToClass = new Intent(OrderActivity.this, Order.class);
 //        sendOrderInfoToClass.putExtra("tableNum", tableNum);
 //        sendOrderInfoToClass.putExtra("clientMessage", clientMessage);
 
     }
+
+
+
+
 
 }

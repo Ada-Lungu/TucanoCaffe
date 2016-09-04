@@ -82,5 +82,13 @@
         android:onClick="onSendOrder"
         />
 
+    <!--<CheckBox-->
+        <!--android:id="@+id/favorite"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="@string/favorite"-->
+        <!--android:onClick="onFavoriteClicked"-->
+        <!--/>-->
+
 
 </LinearLayout>

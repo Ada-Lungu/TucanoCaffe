@@ -8,11 +8,34 @@
     tools:context="com.example.ada.tucanocaffe.TopLevelActivity"
     tools:showIn="@layout/activity_top_level">
 
+
     <ImageView
-        android:layout_width="200dp"
-        android:layout_height="100dp"
-        android:src="@drawable/logo"
-        android:contentDescription="@string/logo" />
+        android:layout_width="500dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="60dp"
+        android:src="@drawable/machiatto"
+        android:contentDescription="@string/logo"
+        />
+
+
+    <Button
+        android:id="@+id/menuBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleType="fitXY"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="30dp"
+        android:text="See Menu"
+        />
+
+    <Button
+        android:id="@+id/waiterBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleType="fitXY"
+        android:layout_gravity="center_horizontal"
+        android:text="See Orders"
+        />
 
     <ListView
         android:id="@+id/listProductsMenu"
@@ -20,5 +43,20 @@
         android:layout_height="wrap_content"
         android:entries="@array/options"
         />
+
+    <!--<TextView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginTop="50dp"-->
+        <!--android:textAppearance="?android:attr/textAppearanceMedium"-->
+        <!--android:text="@string/favorites"-->
+        <!--/>-->
+
+    <!--<ListView-->
+        <!--android:id="@+id/listFavorites"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:entries="@array/options"-->
+        <!--/>-->
 
 </LinearLayout>

@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.database.sqlite.SQLiteDatabase;
 import android.content.Context;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 /**
  * Created by ada on 8/20/16.
@@ -11,18 +12,19 @@ import android.database.sqlite.SQLiteOpenHelper;
 class tucanoDatabaseHelper extends SQLiteOpenHelper {
 
     private static final String db_name = "tucano_db";
-    private static final int db_version = 2;
+    private static final int db_version = 4;
 
-//    constructor of the SQLiteOpenHelper superclass
+    //    constructor of the SQLiteOpenHelper superclass
     tucanoDatabaseHelper(Context context){
         super(context, db_name, null, db_version);
+        Log.v("INFO:", "in constructor of tucando db helper");
 
     }
 
     public void onCreate(SQLiteDatabase db) {
-
-        updateMyDatabase(db, 0, db_version);
-
+        Log.v("INFO:", "in on create...");
+    //  updateMyDatabase(db, 0, db_version);
+        createDB(db);
     }
 
     private static void insertCoffee(SQLiteDatabase db, String name, String description, int resourceId) {
@@ -36,15 +38,28 @@ class tucanoDatabaseHelper extends SQLiteOpenHelper {
 
     }
 
-    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+    private static void insertOrder(SQLiteDatabase db, int tableNo, String coffeeName, String clientMessage){
+        ContentValues orderValues = new ContentValues();
+        orderValues.put("tableNo",tableNo);
+        orderValues.put("coffeeName", coffeeName);
+        orderValues.put("clientMessage", clientMessage);
+        //        we insert these into the Coffee table
+        db.insert("Orders", null, orderValues);
 
-        updateMyDatabase(db, oldVersion, newVersion);
+    }
+
+
+    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        Log.v("INFO:", "in upgrade....");
     }
 
     private void updateMyDatabase(SQLiteDatabase db, int oldVersion, int newVersion){
 
+    }
+
+    public void createDB(SQLiteDatabase db) {
 //      if the user does not have any db, it creates it=> calls onCreate
-        if (oldVersion < 1){
+            Log.v("INFO:", "in create table coffee");
             db.execSQL("CREATE TABLE Coffee( "
                     + "_id INTEGER PRIMARY KEY AUTOINCREMENT, "
                     + "Name TEXT, "
@@ -57,15 +72,17 @@ class tucanoDatabaseHelper extends SQLiteOpenHelper {
             insertCoffee(db, "Machiatto", "Literally means stained milk. The name comes from the procedure through which the milk is stained by the addition of espresso", R.drawable.machiatto);
 
 
-        }
-
 //      if the user has the db, but the version is lower than current which is 2
-        if (oldVersion < 2){
-            db.execSQL("ALTER TABLE COFFEE ADD COLUMN FAVOURITE NUMERIC;");
-        }
+            Log.v("INFO:", "in create table order");
+            db.execSQL("CREATE TABLE Orders( "
+                + "_id INTEGER PRIMARY KEY AUTOINCREMENT, "
+                + "TableNo INTEGER, "
+                + "CoffeeName TEXT, "
+                + "ClientMessage TEXT);");
 
+            insertOrder(db, 1, "Cappucino", "Without sugar please!");
+            insertOrder(db, 2, "Latte", "Without sugar please!");
 
     }
-
 
 }

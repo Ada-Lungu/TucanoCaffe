@@ -20,5 +20,7 @@
         <item>Table 4</item>
     </string-array>
     <string name="title_activity_orders_page">OrdersPageActivity</string>
+    <string name="favorite">Check as Favorite Drink</string>
+    <string name="favorites">Your favorite Drinks:</string>
 
 </resources>
