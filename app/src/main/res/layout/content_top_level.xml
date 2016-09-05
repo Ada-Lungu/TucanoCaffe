@@ -26,37 +26,17 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginBottom="30dp"
         android:text="See Menu"
+        android:onClick="onSeeMenu"
         />
 
-    <Button
-        android:id="@+id/waiterBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:scaleType="fitXY"
-        android:layout_gravity="center_horizontal"
-        android:text="See Orders"
-        />
-
-    <ListView
-        android:id="@+id/listProductsMenu"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:entries="@array/options"
-        />
-
-    <!--<TextView-->
+    <!--<Button-->
+        <!--android:id="@+id/waiterBtn"-->
         <!--android:layout_width="wrap_content"-->
         <!--android:layout_height="wrap_content"-->
-        <!--android:layout_marginTop="50dp"-->
-        <!--android:textAppearance="?android:attr/textAppearanceMedium"-->
-        <!--android:text="@string/favorites"-->
+        <!--android:scaleType="fitXY"-->
+        <!--android:layout_gravity="center_horizontal"-->
+        <!--android:text="See Orders"-->
         <!--/>-->
 
-    <!--<ListView-->
-        <!--android:id="@+id/listFavorites"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:entries="@array/options"-->
-        <!--/>-->
 
 </LinearLayout>

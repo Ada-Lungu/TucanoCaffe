@@ -21,5 +21,6 @@
     <string name="title_activity_orders_page">OrdersPageActivity</string>
     <string name="favorite">Check as Favorite Drink</string>
     <string name="favorites">Your favorite Drinks:</string>
+    <string name="title_activity_menu_options">MenuOptionsActivity</string>
 
 </resources>

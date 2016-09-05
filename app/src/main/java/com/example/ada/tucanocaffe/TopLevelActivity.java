@@ -15,31 +15,12 @@ public class TopLevelActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_top_level);
 
-    // create an OnItemClickListener
-        AdapterView.OnItemClickListener productClickListener = new AdapterView.OnItemClickListener()
-    // anonymous class that implements the OnItemClickListener() interface
-        {
-            public void onItemClick(AdapterView<?> listView, View itemView, int position, long id){
-                Intent intent = new Intent(TopLevelActivity.this, ProductCategoryActivity.class);
-                String selectedText = listView.getItemAtPosition(position).toString();
+    }
 
-                int category = 0;
-                if (selectedText.equals("Coffees")) {
-                    category = Product.COFFEE_CATEGORY;
-                }
-                if (selectedText.equals("Sweets")) {
-                    category = Product.SWEETS_CATEGORY;
+    public void onSeeMenu(View view){
 
-                }
-                intent.putExtra(ProductCategoryActivity.EXTRA_CATEGORY, category);
-                startActivity(intent);
-
-            }
-        };
-
-    // attach the listener to the ListView
-        ListView productsListMenu = (ListView) findViewById(R.id.listProductsMenu);
-        productsListMenu.setOnItemClickListener(productClickListener);
+            Intent intent = new Intent (this, MenuOptionsActivity.class);
+            startActivity(intent);
 
     }
 

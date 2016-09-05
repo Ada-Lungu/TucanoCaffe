@@ -33,6 +33,14 @@
         <activity
             android:name=".OrdersPageActivity"
             android:label="@string/title_activity_orders_page"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".MenuOptions"
+            android:label="@string/title_activity_menu_options"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".MenuOptionsActivity"
+            android:label="@string/title_activity_menu_options"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
