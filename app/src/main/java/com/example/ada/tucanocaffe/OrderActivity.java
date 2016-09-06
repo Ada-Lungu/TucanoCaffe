@@ -3,6 +3,7 @@ package com.example.ada.tucanocaffe;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 
 
@@ -20,7 +21,7 @@ public class OrderActivity extends Activity {
 
         Intent getOrderInfo = getIntent();
 
-        String coffeeId = (String) getOrderInfo.getExtras().get("coffeeId");
+        String productName = (String) getOrderInfo.getExtras().get("productName");
         String tableNum = (String) getOrderInfo.getExtras().get("tableNumber");
         String clientMessage = (String) getOrderInfo.getExtras().get("clientMessage");
 
@@ -32,17 +33,17 @@ public class OrderActivity extends Activity {
 //        clientMessageView.setText(order.getClientMessage());
         clientMessageView.setText(clientMessage);
 
-        TextView coffeeIdView = (TextView) findViewById(R.id.coffeeId);
-        coffeeIdView.setText(coffeeId);
-
-//        Intent sendOrderInfoToClass = new Intent(OrderActivity.this, Order.class);
-//        sendOrderInfoToClass.putExtra("tableNum", tableNum);
-//        sendOrderInfoToClass.putExtra("clientMessage", clientMessage);
+        TextView productNameView = (TextView) findViewById(R.id.productName);
+        productNameView.setText(productName);
 
     }
 
 
+    public void onBackToMenu(View view){
 
+        Intent intent= new Intent(this, MenuOptionsActivity.class);
+        startActivity(intent);
+    }
 
 
 }

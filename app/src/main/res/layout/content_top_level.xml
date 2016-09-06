@@ -10,11 +10,14 @@
 
 
     <ImageView
-        android:layout_width="500dp"
-        android:layout_height="200dp"
-        android:layout_marginTop="60dp"
-        android:src="@drawable/machiatto"
+        android:layout_width="600px"
+        android:layout_height="600px"
+        android:layout_marginTop="90dp"
+        android:src="@drawable/collage"
         android:contentDescription="@string/logo"
+        android:scaleType="fitXY"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="60dp"
         />
 
 
@@ -24,10 +27,13 @@
         android:layout_height="wrap_content"
         android:scaleType="fitXY"
         android:layout_gravity="center_horizontal"
-        android:layout_marginBottom="30dp"
+        android:background="@drawable/border_green"
         android:text="See Menu"
         android:onClick="onSeeMenu"
+        android:padding="30px"
         />
+
+
 
     <!--<Button-->
         <!--android:id="@+id/waiterBtn"-->

@@ -19,7 +19,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ProductCategoryActivity"
+            android:name=".AllProductsInCategoryActivity"
             android:label="@string/title_activity_coffee_category"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
@@ -35,13 +35,14 @@
             android:label="@string/title_activity_orders_page"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".MenuOptions"
-            android:label="@string/title_activity_menu_options"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
             android:name=".MenuOptionsActivity"
             android:label="@string/title_activity_menu_options"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <!--<activity-->
+            <!--android:name=".MenuOptionsActivity"-->
+            <!--android:label="@string/title_activity_menu_options"-->
+            <!--android:theme="@style/AppTheme.NoActionBar">-->
+        <!--</activity>-->
     </application>
 
 </manifest>

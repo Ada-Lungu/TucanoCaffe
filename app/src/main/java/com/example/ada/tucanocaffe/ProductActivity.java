@@ -22,12 +22,11 @@ public class ProductActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_coffee);
+        setContentView(R.layout.activity_product);
 
         // get id of coffee from intent + the coffee object with that id
         int coffeeNo = (Integer)getIntent().getExtras().get(EXTRA_COFFEE_NO);
-
-//      create a cursor
+//        String productName = getIntent().getStringExtra("productName");
 
         try{
 //          create a hel[per object
@@ -62,8 +61,6 @@ public class ProductActivity extends Activity {
                 TextView coffeeDescrip = (TextView) findViewById(R.id.description);
                 coffeeDescrip.setText(descriptionText);
 
-//        Button sendMessage = (Button) findViewById(R.id.selectCoffee);
-
             }
             cursor.close();
             db.close();
@@ -74,12 +71,14 @@ public class ProductActivity extends Activity {
             toast.show();
         }
 
-
     }
 
     public void onSendOrder(View view){
 
         int coffeeNo = (Integer)getIntent().getExtras().get(EXTRA_COFFEE_NO);
+
+        TextView productNameView = (TextView)findViewById(R.id.name);
+        String productName = productNameView.getText().toString();
 
         EditText clientMessageView = (EditText)findViewById(R.id.clientMessage);
         String clientMessage = clientMessageView.getText().toString();
@@ -88,59 +87,21 @@ public class ProductActivity extends Activity {
         String tableNum = tableNumsArray.getSelectedItem().toString();
 
         Intent sendOrderIntent = new Intent(ProductActivity.this, OrderActivity.class);
+        sendOrderIntent.putExtra("productName", productName);
         sendOrderIntent.putExtra("clientMessage", clientMessage);
         sendOrderIntent.putExtra("tableNumber", tableNum);
         sendOrderIntent.putExtra("coffeeId", Integer.toString(coffeeNo));
         startActivity(sendOrderIntent);
 
+    }
+
+
+    public void onBackToProductsCategory(View view){
+
+        Intent intent = new Intent(this, AllProductsInCategoryActivity.class);
+
+        startActivity(intent);
 
     }
-//
-//    //  when checkbox is selected, update the database
-//    public void onFavoriteClicked(View view) {
-//        int coffeeId = (Integer) getIntent().getExtras().get(EXTRA_COFFEE_NO);
-//        new UpdateCoffeeTask().execute(coffeeId);
-//    }
-//
-//    private class UpdateCoffeeTask extends AsyncTask<Integer, Void, Boolean> {
-//
-//        ContentValues coffeeValues;
-//
-//        protected void onPreExecute() {
-//            CheckBox favoriteCoffee = (CheckBox) findViewById(R.id.favorite);
-//            coffeeValues = new ContentValues();
-//            coffeeValues.put("Favorite", favoriteCoffee.isChecked());
-//
-//        }
-//
-//        @Override
-//        protected Boolean doInBackground(Integer... coffees) {
-//
-//            int coffeeId = coffees[0];
-//            SQLiteOpenHelper tucanoDatabaseHelper = new tucanoDatabaseHelper(ProductActivity.this);
-//
-//            try {
-//                SQLiteDatabase db = tucanoDatabaseHelper.getWritableDatabase();
-//                db.update("Coffee", coffeeValues,
-//                        "_id=?", new String[]{Integer.toString(coffeeId)}
-//                );
-//                db.close();
-//                return true;
-//            } catch (SQLiteException e) {
-//                return false;
-//            }
-//        }
-//
-//        protected void onPostExecute(Boolean success){
-//
-//            if(!success){
-//                Toast toast = Toast.makeText(ProductActivity.this, "Database unavailable", Toast.LENGTH_SHORT);
-//
-//                toast.show();
-//
-//            }
-//        }
-//    }
 
-
-    }
+}

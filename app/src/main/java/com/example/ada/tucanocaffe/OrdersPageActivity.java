@@ -68,7 +68,7 @@ public class OrdersPageActivity extends ListActivity{
 
 //    public void onListItemClick(ListView listView, View itemView, int position, long id){
 //
-//        Intent intent = new Intent(ProductCategoryActivity.this, ProductActivity.class);
+//        Intent intent = new Intent(AllProductsInCategoryActivity.this, ProductActivity.class);
 //        intent.putExtra(ProductActivity.EXTRA_COFFEE_NO, (int) id);
 //        startActivity(intent);
 //

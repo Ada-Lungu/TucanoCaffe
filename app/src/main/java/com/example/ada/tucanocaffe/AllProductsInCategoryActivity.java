@@ -16,7 +16,7 @@ import android.widget.Toast;
 /**
  * Created by ada on 8/14/16.
  */
-public class ProductCategoryActivity extends ListActivity{
+public class AllProductsInCategoryActivity extends ListActivity{
 
     private SQLiteDatabase db;
     private Cursor cursor;
@@ -25,6 +25,8 @@ public class ProductCategoryActivity extends ListActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        setContentView(R.layout.activity_product_category);
 
         ListView coffeeCategoryListView = getListView();
 
@@ -41,13 +43,13 @@ public class ProductCategoryActivity extends ListActivity{
                                     null, null, null
             );
 
+
             CursorAdapter coffeeListAdapter = new SimpleCursorAdapter(this,
                     android.R.layout.simple_list_item_1,
                     cursor,
                     new String[] {"Name"},
                     new int[]{android.R.id.text1},
                     0);
-
 
 
         coffeeCategoryListView.setAdapter(coffeeListAdapter);
@@ -68,13 +70,19 @@ public class ProductCategoryActivity extends ListActivity{
 
     public void onListItemClick(ListView listView, View itemView, int position, long id){
 
-        Intent intent = new Intent(ProductCategoryActivity.this, ProductActivity.class);
+//        String productName = (String)listView.getItemAtPosition(position);
+        Intent intent = new Intent(AllProductsInCategoryActivity.this, ProductActivity.class);
+
         intent.putExtra(ProductActivity.EXTRA_COFFEE_NO, (int) id);
+//        intent.putExtra("productName", productName);
         startActivity(intent);
 
     }
 
+    public void onBackToMenu(View view){
 
-
+        Intent intent= new Intent(this, MenuOptionsActivity.class);
+        startActivity(intent);
+    }
 
 }

@@ -72,8 +72,15 @@ class tucanoDatabaseHelper extends SQLiteOpenHelper {
             insertProduct(db, "Latte", "A couple of expresso shots with steamed milk", R.drawable.latte, Product.COFFEE_CATEGORY);
             insertProduct(db, "Cappuccino", "Espresso, hot milk and steamed milk foam", R.drawable.cappucino2, Product.COFFEE_CATEGORY);
             insertProduct(db, "Espresso", "Highest quality beans roasted and brewed fresh", R.drawable.espresso, Product.COFFEE_CATEGORY);
-            insertProduct(db, "Machiatto", "Literally means stained milk. The name comes from the procedure through which the milk is stained by the addition of espresso", R.drawable.machiatto, Product.COFFEE_CATEGORY);
-            insertProduct(db, "Brownie", "Delicious and fluffy!", R.drawable.machiatto, Product.SWEETS_CATEGORY);
+            insertProduct(db, "Mocha Frappe", "Foamy frappe, with minced ice and chocolate flavour", R.drawable.mocha_frappe, Product.COFFEE_CATEGORY);
+            insertProduct(db, "Frapuccino", "Cold foamy frappe, with crubles of almonds and a touch of caramel", R.drawable.frappucino, Product.COFFEE_CATEGORY);
+            insertProduct(db, "Machiatto", "Double espresso shots, rest is mink with pistachios top creamy foam.", R.drawable.machiatto, Product.COFFEE_CATEGORY);
+            insertProduct(db, "Brownie", "Delicious and fluffy!", R.drawable.brownie, Product.SWEETS_CATEGORY);
+            insertProduct(db, "Apple Crumble", "Crunchy crust of apple dipped in caramel, covered by crushed biscuits!", R.drawable.apple_crumble, Product.SWEETS_CATEGORY);
+            insertProduct(db, "Berry Mousse", "Deliciously smoothly fresh berry mousse with berry fruits on top!", R.drawable.berry_mousse, Product.SWEETS_CATEGORY);
+            insertProduct(db, "Lemon Cake", "An explosion of lemon taste with a tint of mint flavour in a combination of mousse and cake!", R.drawable.lemon_cake, Product.SWEETS_CATEGORY);
+            insertProduct(db, "Cheesecake", "Best local fresh mixed cheese with the freshest fruits from grandmo's garden", R.drawable.cheesecake, Product.SWEETS_CATEGORY);
+            insertProduct(db, "Raspberry YogPuddle", "A combination of delicately mixed yogurt and raspberry puddle, with minced fresh organic fruits!", R.drawable.raspberry_cream, Product.SWEETS_CATEGORY);
 
 
 

@@ -20,4 +20,18 @@
         android:entries="@array/options"
         />
 
+    <Button
+        android:id="@+id/backToMain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleType="fitXY"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/border_green"
+        android:text="Back to Main"
+        android:onClick="onBackToMain"
+        android:padding="20px"
+        android:layout_marginTop="800px"
+        />
+
+
 </RelativeLayout>

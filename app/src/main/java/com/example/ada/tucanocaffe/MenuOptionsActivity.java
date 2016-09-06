@@ -20,7 +20,7 @@ public class MenuOptionsActivity extends Activity {
                 // anonymous class that implements the OnItemClickListener() interface
         {
             public void onItemClick(AdapterView<?> listView, View itemView, int position, long id){
-                Intent intent = new Intent(MenuOptionsActivity.this, ProductCategoryActivity.class);
+                Intent intent = new Intent(MenuOptionsActivity.this, AllProductsInCategoryActivity.class);
                 String selectedText = listView.getItemAtPosition(position).toString();
 
                 int category = 0;
@@ -31,7 +31,7 @@ public class MenuOptionsActivity extends Activity {
                     category = Product.SWEETS_CATEGORY;
 
                 }
-                intent.putExtra(ProductCategoryActivity.EXTRA_CATEGORY, category);
+                intent.putExtra(AllProductsInCategoryActivity.EXTRA_CATEGORY, category);
                 startActivity(intent);
 
             }
@@ -42,5 +42,15 @@ public class MenuOptionsActivity extends Activity {
         productsListMenu.setOnItemClickListener(productClickListener);
 
     }
+
+
+    public void onBackToMain(View view){
+
+        Intent intent = new Intent(this, TopLevelActivity.class);
+        startActivity(intent);
+
+
+    }
+
 
 }

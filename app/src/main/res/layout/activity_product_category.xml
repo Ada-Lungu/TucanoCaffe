@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context="com.example.ada.tucanocaffe.MenuOptionsActivity">
+    tools:context=".AllProductsInCategoryActivity">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -41,7 +41,7 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <include layout="@layout/content_menu_options" />
+    <include layout="@layout/content_product_category" />
 
     <!--<android.support.design.widget.FloatingActionButton-->
     <!--android:id="@+id/fab"-->

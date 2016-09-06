@@ -7,35 +7,50 @@
     android:orientation="vertical"
     android:gravity="center_vertical|left"
     tools:context=".ProductActivity"
-    tools:showIn="@layout/activity_coffee">
+    tools:showIn="@layout/activity_product">
+
+    <TextView
+        android:id="@+id/afterOrderMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="19dp"
+        android:scaleType="fitXY"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="30dp"
+        android:text="@string/afterOrderMessage"
+    />
 
     <TextView
         android:id="@+id/tableNum"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="17dp"
+        android:textSize="16dp"
         android:textAlignment="center"
         android:scaleType="fitXY"
         android:layout_gravity="center_horizontal"
         android:layout_marginBottom="30dp"
+        android:background="@drawable/border_fuxia"
+        android:padding="20px"
         />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="17dp"
+        android:textSize="16dp"
         android:textAlignment="center"
         android:scaleType="fitXY"
         android:layout_gravity="center_horizontal"
-        android:layout_marginBottom="30dp"
+        android:layout_marginBottom="10dp"
         android:text="Product"
+        android:background="@drawable/border_fuxia"
+        android:padding="20px"
         />
 
     <TextView
-        android:id="@+id/coffeeId"
+        android:id="@+id/productName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="17dp"
+        android:textSize="16dp"
         android:textAlignment="center"
         android:scaleType="fitXY"
         android:layout_gravity="center_horizontal"
@@ -45,21 +60,36 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="17dp"
+        android:textSize="16dp"
         android:textAlignment="center"
         android:scaleType="fitXY"
         android:layout_gravity="center_horizontal"
-        android:layout_marginBottom="30dp"
-        android:text="Client's Message:"
+        android:layout_marginBottom="10dp"
+        android:text="Client's Message"
+        android:background="@drawable/border_fuxia"
+        android:padding="20px"
         />
 
     <TextView
         android:id="@+id/clientMessage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="14dp"
+        android:textSize="16dp"
         android:scaleType="fitXY"
         android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="30dp"
+        />
+
+    <Button
+        android:id="@+id/backToMenu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleType="fitXY"
+        android:layout_gravity="center_horizontal"
+        android:text="Back to Menu"
+        android:onClick="onBackToMenu"
+        android:background="@drawable/border_green"
+        android:padding="30px"
         />
 
 </LinearLayout>
